@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Velocidad de escritura</title>
+
+<style>
+body{
+font-family: Arial;
+text-align:center;
+background:#1e1e1e;
+color:white;
+}
+
+#texto{
+font-size:24px;
+margin:20px;
+}
+
+input{
+padding:10px;
+font-size:18px;
+width:60%;
+}
+
+button{
+padding:10px 20px;
+font-size:18px;
+margin-top:10px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>⌨️ ¿Qué tan rápido escribes?</h1>
+
+<p id="texto"></p>
+
+<input id="entrada" placeholder="Escribe aquí...">
+
+<br><br>
+
+<button onclick="comprobar()">Terminar</button>
+<button onclick="nuevo()">Nueva frase</button>
+
+<p id="resultado"></p>
+
+<script>
+
+let frases = [
+"La programacion es divertida",
+"Practicar todos los dias mejora tus habilidades",
+"Los videojuegos pueden inspirar grandes ideas",
+"Internet esta lleno de conocimiento",
+"Crear cosas nuevas es emocionante"
+]
+
+let inicio = 0
+
+function nuevo(){
+
+let random = Math.floor(Math.random() * frases.length)
+
+document.getElementById("texto").innerText = frases[random]
+
+document.getElementById("entrada").value = ""
+
+inicio = Date.now()
+
+}
+
+function comprobar(){
+
+let texto = document.getElementById("texto").innerText
+let escrito = document.getElementById("entrada").value
+
+let fin = Date.now()
+
+let tiempo = (fin - inicio) / 1000
+
+if(escrito == texto){
+
+document.getElementById("resultado").innerHTML =
+"⏱ Tiempo: " + tiempo + " segundos"
+
+}else{
+
+document.getElementById("resultado").innerHTML =
+"❌ El texto no coincide"
+
+}
+
+}
+
+nuevo()
+
+</script>
+
+</body>
+</html>
