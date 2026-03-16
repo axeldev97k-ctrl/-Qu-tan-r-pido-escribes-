@@ -93,6 +93,22 @@ document.getElementById("resultado").innerHTML =
 
 document.getElementById("resultado").innerHTML =
 "❌ El texto no coincide"
+  let intervalo
+
+function iniciarCronometro(){
+
+let segundos = 0
+
+intervalo = setInterval(function(){
+
+segundos++
+
+document.getElementById("cronometro").innerText =
+"⏱ Tiempo: " + segundos + " s"
+
+},1000)
+
+}
 
 }
 
