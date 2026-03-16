@@ -105,6 +105,25 @@ segundos++
 
 document.getElementById("cronometro").innerText =
 "⏱ Tiempo: " + segundos + " s"
+  let inicio
+let intervalo
+
+function iniciarCronometro(){
+
+inicio = Date.now()
+
+intervalo = setInterval(function(){
+
+let ahora = Date.now()
+
+let tiempo = ((ahora - inicio) / 1000).toFixed(1)
+
+document.getElementById("cronometro").innerText =
+"⏱ Tiempo: " + tiempo + " s"
+
+},100)
+
+}
 
 },1000)
 
